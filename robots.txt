@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# Staging — nicht indexieren bis Launch

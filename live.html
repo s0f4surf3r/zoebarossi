@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Live &amp; Stream — Zoe Barossi auf Twitch, YouTube und Instagram. Trainings-Streams, Race-Day, Community.">
+<meta name="theme-color" content="#0d1b2a">
+<meta property="og:title" content="Live — Zoe Barossi">
+<meta property="og:description" content="Live auf Twitch &amp; YouTube. Training, Rennen, Community.">
+<title>Live · Zoe Barossi</title>
+<link rel="preload" href="fonts/Inter.var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .page-header {
+    padding: 9rem 0 5rem;
+    background: linear-gradient(180deg, rgba(13,27,42,0.4), rgba(13,27,42,0.85)),
+                linear-gradient(135deg, #0d1b2a, #15283d 50%, #4a9eb0 120%);
+  }
+  .page-header-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .page-header .meta { display: block; margin-bottom: 1rem; }
+  .page-header h1 { max-width: 16ch; margin-bottom: 1.5rem; }
+
+  .stream-box {
+    padding: var(--section-pad);
+  }
+  .stream-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .twitch-embed {
+    aspect-ratio: 16/9;
+    width: 100%;
+    background: var(--color-primary);
+    border: 1px solid rgba(90, 122, 140, 0.25);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .twitch-embed iframe { width: 100%; height: 100%; border: 0; }
+  .twitch-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background:
+      linear-gradient(135deg, rgba(13, 27, 42, 0.82), rgba(21, 40, 61, 0.92)),
+      url('images/live-setup.webp') center/cover;
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-light);
+  }
+  .twitch-placeholder * { text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+  .twitch-placeholder .big-status {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--color-light);
+    letter-spacing: -0.02em;
+  }
+  .twitch-placeholder .meta { color: var(--color-secondary); }
+
+  .plan {
+    padding: var(--section-pad);
+    background: var(--color-primary);
+    border-top: 1px solid rgba(90, 122, 140, 0.15);
+  }
+  .plan-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .plan-header { margin-bottom: 3rem; }
+  .plan-header .meta { display: block; margin-bottom: 1rem; }
+  .schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .slot {
+    padding: 1.8rem 1.6rem;
+    background: rgba(13, 27, 42, 0.45);
+    border: 1px solid rgba(90, 122, 140, 0.18);
+    border-radius: 6px;
+  }
+  .slot-day {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-spark);
+    margin-bottom: .3rem;
+  }
+  .slot-time {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-light);
+    margin-bottom: .5rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .slot p { font-size: 14px; color: var(--color-light); opacity: 0.78; }
+
+  .race-day {
+    padding: var(--section-pad);
+    text-align: center;
+    background:
+      radial-gradient(circle at center, rgba(232, 196, 104, 0.1), transparent 60%);
+  }
+  .race-day-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .race-day .meta { display: block; margin-bottom: 1rem; }
+  .race-day h2 { margin-bottom: 1.5rem; }
+  .race-day p { font-size: 1.15rem; color: var(--color-light); opacity: 0.85; margin-bottom: 2rem; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">zoe barossi</a>
+    <div class="nav-links">
+      <a href="ueber.html">Über</a>
+      <a href="partner.html">Partner</a>
+      <a href="live.html" style="color: var(--color-light); opacity: 1">Live</a>
+    </div>
+    <div class="nav-lang">
+      <a href="#" class="active">DE</a>
+      <a href="#">EN</a>
+      <a href="#">PT</a>
+    </div>
+    <button class="burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <span class="meta spark">Live &amp; Stream</span>
+    <h1>Training. Gespräche. Race Day.</h1>
+    <p class="lead">Zoe streamt regelmäßig — aus dem Wohnzimmer, vom Tempelhofer Feld, vom Race. Komm dazu.</p>
+  </div>
+</section>
+
+<section class="stream-box">
+  <div class="stream-inner">
+    <div class="twitch-embed">
+      <div class="twitch-placeholder">
+        <span class="live-status">Offline</span>
+        <div class="big-status">Nächster Stream folgt.</div>
+        <p class="meta">Abonniere auf Twitch — du bekommst Bescheid.</p>
+        <a href="https://twitch.tv/zoebarossi" class="btn btn-filled" target="_blank" rel="noopener">Auf Twitch folgen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plan">
+  <div class="plan-inner">
+    <div class="plan-header">
+      <span class="meta teal">Stream-Plan</span>
+      <h2>Fester Rhythmus. Live und authentisch.</h2>
+    </div>
+    <div class="schedule">
+      <div class="slot">
+        <div class="slot-day">Dienstag</div>
+        <div class="slot-time">19:00</div>
+        <p>Indoor-Training · 90 Min auf dem Smart-Trainer, mit Plan-Erklärung und Q&amp;A.</p>
+      </div>
+      <div class="slot">
+        <div class="slot-day">Donnerstag</div>
+        <div class="slot-time">20:00</div>
+        <p>Gespräch · Mit Trainer:innen, Athlet:innen, Menschen aus der Community.</p>
+      </div>
+      <div class="slot">
+        <div class="slot-day">Sonntag</div>
+        <div class="slot-time">10:00</div>
+        <p>Long Run oder Long Bike · aufgezeichnet, später auf YouTube.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="race-day">
+  <div class="race-day-inner">
+    <span class="meta spark">12. September 2026</span>
+    <h2>Race Day Nizza — Live dabei.</h2>
+    <p>Am Tag der Weltmeisterschaft wird der Ironman-Stream offiziell übertragen. Crew und Allianz-Partner bekommen zusätzlich Behind-the-Scenes-Streams — vor, während und nach dem Rennen.</p>
+    <a href="partner.html" class="btn btn-outlined">Partner werden</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <span class="meta">Zoe Barossi</span>
+      <p>Triathletin. Berlin. Auf dem Weg nach Nizza, 12. September 2026.</p>
+    </div>
+    <div class="footer-col">
+      <span class="meta">Navigation</span>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="ueber.html">Über</a></li>
+        <li><a href="partner.html">Partner</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="meta">Folgen</span>
+      <ul>
+        <li><a href="https://instagram.com/zoebarossi" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://twitch.tv/zoebarossi" target="_blank" rel="noopener">Twitch</a></li>
+        <li><a href="https://youtube.com/@zoebarossi" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="meta">Rechtliches</span>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="mailto:sponsoring@zoebarossi.com">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Zoe Barossi</span>
+    <span>Berlin → Nizza</span>
+  </div>
+</footer>
+
+</body>
+</html>

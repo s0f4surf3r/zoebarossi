@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farbpalette — Zoe Barossi</title>
+<style>
+  :root {
+    /* Kern-Palette: "Tiefe See + Tempelhof" */
+    --color-bg:        #0d1b2a;  /* Tiefe See */
+    --color-primary:   #15283d;  /* Tempelhof-Dämmerung */
+    --color-secondary: #5a7a8c;  /* Petrol-gebrochen */
+    --color-accent:    #2b8a9a;  /* Teal — ihr Trikot */
+    --color-teal:      #4a9eb0;  /* Helleres Petrol */
+    --color-warm:      #c4604e;  /* Berliner Terracotta */
+    --color-light:     #e8ddc8;  /* Warmes Sand-Elfenbein */
+    --color-spark:     #e8c468;  /* Finisher-Gold (sparsam) */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-light);
+    padding: 2rem 3rem;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  .meta {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: .3rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    color: var(--color-light);
+  }
+  h2 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin: 4rem 0 1.3rem;
+    border-top: 1px solid rgba(90,122,140,0.2);
+    padding-top: 1.6rem;
+  }
+
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .swatch {
+    background: var(--color-primary);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(90,122,140,0.18);
+  }
+  .swatch .color {
+    height: 110px;
+  }
+  .swatch .info {
+    padding: 1rem 1.1rem;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .swatch .role {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: .3rem;
+  }
+  .swatch .hex {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    color: var(--color-teal);
+    margin-bottom: .35rem;
+  }
+  .swatch .desc {
+    color: var(--color-light);
+    opacity: 0.75;
+    font-size: 12px;
+  }
+
+  /* HERO PREVIEW */
+  .hero-preview {
+    position: relative;
+    padding: 4rem 2.5rem;
+    border-radius: 8px;
+    background:
+      linear-gradient(180deg,
+        rgba(13,27,42,0.1) 0%,
+        rgba(13,27,42,0.85) 80%,
+        rgba(13,27,42,1) 100%),
+      linear-gradient(135deg, #0d1b2a 0%, #15283d 50%, #2b8a9a 150%);
+    overflow: hidden;
+  }
+  .hero-preview::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 85% 30%, rgba(232, 196, 104, 0.12), transparent 40%),
+      radial-gradient(circle at 15% 80%, rgba(196, 96, 78, 0.1), transparent 50%);
+    pointer-events: none;
+  }
+  .hero-preview > * { position: relative; z-index: 1; }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-spark);
+    margin-bottom: 1.2rem;
+    padding: .4rem .8rem;
+    border: 1px solid rgba(232, 196, 104, 0.3);
+    border-radius: 3px;
+  }
+  .hero-headline {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--color-light);
+    margin-bottom: 1rem;
+  }
+  .hero-headline .accent {
+    color: var(--color-accent);
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--color-light);
+    opacity: 0.85;
+    margin-bottom: 2.4rem;
+    max-width: 520px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 0.85rem 1.7rem;
+    border-radius: 4px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .btn-filled {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+  .btn-filled:hover { background: var(--color-teal); }
+  .btn-outlined {
+    background: transparent;
+    border-color: var(--color-light);
+    color: var(--color-light);
+  }
+  .btn-outlined:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+  /* COMPONENTS */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.3rem;
+  }
+  .card {
+    background: var(--color-primary);
+    border: 1px solid rgba(90,122,140,0.25);
+    border-radius: 6px;
+    padding: 1.6rem;
+  }
+  .card-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-teal);
+    margin-bottom: .7rem;
+  }
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    color: var(--color-light);
+  }
+  .card-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-spark);
+    margin-bottom: 1rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .card-desc {
+    font-size: 14px;
+    color: var(--color-light);
+    opacity: 0.7;
+    margin-bottom: 1.3rem;
+  }
+  .card ul {
+    list-style: none;
+    font-size: 13px;
+    color: var(--color-light);
+    opacity: 0.85;
+  }
+  .card li {
+    padding: .35rem 0;
+    padding-left: 1.3rem;
+    position: relative;
+  }
+  .card li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: .35rem .8rem;
+    border-radius: 3px;
+    background: rgba(74,158,176,0.12);
+    color: var(--color-teal);
+    border: 1px solid rgba(74,158,176,0.3);
+  }
+  .tag.warm {
+    background: rgba(196,96,78,0.12);
+    color: var(--color-warm);
+    border-color: rgba(196,96,78,0.3);
+  }
+  .tag.spark {
+    background: rgba(232,196,104,0.12);
+    color: var(--color-spark);
+    border-color: rgba(232,196,104,0.3);
+  }
+
+  /* COUNTDOWN */
+  .countdown {
+    background: var(--color-primary);
+    border-radius: 6px;
+    padding: 2rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .countdown-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+  }
+  .countdown-date {
+    font-size: 1.1rem;
+    color: var(--color-light);
+    opacity: 0.75;
+    margin-top: .4rem;
+  }
+  .countdown-number {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    color: var(--color-spark);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  /* TYPE SAMPLE */
+  .type-sample {
+    background: var(--color-primary);
+    padding: 2.5rem;
+    border-radius: 6px;
+  }
+  .type-sample p {
+    max-width: 640px;
+    color: var(--color-light);
+    opacity: 0.88;
+  }
+  .type-sample .lead {
+    font-size: 1.3rem;
+    opacity: 1;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+  }
+  .type-sample a {
+    color: var(--color-teal);
+    border-bottom: 1px solid rgba(74,158,176,0.4);
+    text-decoration: none;
+  }
+  .type-sample a:hover { color: var(--color-accent); border-color: var(--color-accent); }
+
+  footer {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(90,122,140,0.2);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+  }
+</style>
+</head>
+<body>
+
+<p class="meta">Farbpalette</p>
+<h1>Zoe Barossi — <span style="color: var(--color-accent)">Tiefe See + Tempelhof</span></h1>
+
+<p style="color: var(--color-light); opacity: 0.75; max-width: 640px; margin-bottom: 1rem;">
+  Meer-Kontext · Kontrast ~75% · abgeleitet aus Zoes eigenem Material (Cervia-Meer, Trikot-Petrol, Berliner Terracotta, Tempelhof-Dämmerung, Finisher-Gold).
+</p>
+
+<h2>Die 7 Kern-Rollen + 1 Signature</h2>
+
+<div class="swatches">
+  <div class="swatch">
+    <div class="color" style="background: var(--color-bg)"></div>
+    <div class="info">
+      <div class="role">bg</div>
+      <div class="hex">#0d1b2a</div>
+      <div class="desc">Tiefe See — dunkelster Grund</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="color" style="background: var(--color-primary)"></div>
+    <div class="info">
+      <div class="role">primary</div>
+      <div class="hex">#15283d</div>
+      <div class="desc">Tempelhof-Dämmerung — Karten, Sections</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="color" style="background: var(--color-secondary)"></div>
+    <div class="info">
+      <div class="role">secondary</div>
+      <div class="hex">#5a7a8c</div>
+      <div class="desc">Petrol-gebrochen — Labels, Borders</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="color" style="background: var(--color-accent)"></div>
+    <div class="info">
+      <div class="role">accent</div>
+      <div class="hex">#2b8a9a</div>
+      <div class="desc">Teal — ihr Trikot, Haupt-CTA</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="color" style="background: var(--color-teal)"></div>
+    <div class="info">
+      <div class="role">teal</div>
+      <div class="hex">#4a9eb0</div>
+      <div class="desc">Helleres Petrol — Links, Tags</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="color" style="background: var(--color-warm)"></div>
+    <div class="info">
+      <div class="role">warm</div>
+      <div class="hex">#c4604e</div>
+      <div class="desc">Berliner Terracotta — Wärme, Hover</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="color" style="background: var(--color-light)"></div>
+    <div class="info">
+      <div class="role">light</div>
+      <div class="hex">#e8ddc8</div>
+      <div class="desc">Sand-Elfenbein — Text (kein Reinweiß)</div>
+    </div>
+  </div>
+  <div class="swatch" style="border-color: rgba(232,196,104,0.4)">
+    <div class="color" style="background: var(--color-spark)"></div>
+    <div class="info">
+      <div class="role">spark (optional)</div>
+      <div class="hex">#e8c468</div>
+      <div class="desc">Finisher-Gold — nur Triumph, sparsam</div>
+    </div>
+  </div>
+</div>
+
+<h2>Hero-Gefühl</h2>
+
+<div class="hero-preview">
+  <span class="hero-tag">Nizza · 12. Sep 2026</span>
+  <h3 class="hero-headline">Zoe rennt <span class="accent">weiter</span>.</h3>
+  <p class="hero-sub">Triathletin. São Paulo → Berlin → Nizza. Weltmeisterschaft der Ironman 70.3. Alle Fenster offen.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-filled" href="#">Sponsor werden</a>
+    <a class="btn btn-outlined" href="#">Live zuschauen</a>
+  </div>
+</div>
+
+<h2>Sponsoring-Karten</h2>
+
+<div class="comp-grid">
+  <div class="card">
+    <div class="card-label">Bronze</div>
+    <div class="card-title">Crew</div>
+    <div class="card-price">500 €</div>
+    <div class="card-desc">Für Fans und Freunde die mit auf die Reise wollen.</div>
+    <ul>
+      <li>Name auf der Dankbarkeits-Seite</li>
+      <li>Monatlicher Insider-Newsletter</li>
+      <li>Exklusive Race-Vorschauen</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-label">Silber</div>
+    <div class="card-title">Partner</div>
+    <div class="card-price">2.500 €</div>
+    <div class="card-desc">Für Marken die ein Gesicht suchen.</div>
+    <ul>
+      <li>Logo auf Tri-Suit (Seite)</li>
+      <li>4 Social-Media-Features</li>
+      <li>Logo auf Website + Newsletter</li>
+    </ul>
+  </div>
+  <div class="card" style="border-color: var(--color-accent)">
+    <div class="card-label" style="color: var(--color-spark)">Gold — Hauptsponsor</div>
+    <div class="card-title">Allianz</div>
+    <div class="card-price">10.000 €+</div>
+    <div class="card-desc">Das Gesicht der Nizza-Kampagne.</div>
+    <ul>
+      <li>Logo-Premiumplatzierung (Brust)</li>
+      <li>12 Social-Features + 2 Reels</li>
+      <li>Exklusive Markennamensrechte</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Countdown-Pattern</h2>
+
+<div class="countdown">
+  <div>
+    <div class="countdown-label">Tage bis zur WM</div>
+    <div class="countdown-date">12. September 2026 · Nizza</div>
+  </div>
+  <div class="countdown-number">149</div>
+</div>
+
+<h2>Tags / Labels</h2>
+<div class="tags">
+  <span class="tag">Triathlon</span>
+  <span class="tag">Ironman 70.3</span>
+  <span class="tag">Berlin</span>
+  <span class="tag warm">São Paulo</span>
+  <span class="tag warm">Terracotta</span>
+  <span class="tag spark">Finisher</span>
+</div>
+
+<h2>Typografie + Lauftext</h2>
+
+<div class="type-sample">
+  <p class="lead">Sie ist keine geborene Triathletin. Sie ist geworden, was sie ist — und das sieht man ihr an.</p>
+  <p>Von einem Halbmarathon in Berlin 2023 zum Sprung ins Wasser von Cervia, vom Asphalt des Tempelhofer Felds zur Weltmeisterschaft in Nizza. Zoe Barossi trägt zwei Städte, drei Sprachen und fünf Hero-Types in sich — und stellt sich im <a href="#">September 2026</a> der Frage, was ein Körper an einem Tag leisten kann, wenn alles, was er bisher gelernt hat, zusammenkommt.</p>
+</div>
+
+<footer>
+  Palette v1 · abgeleitet aus Probatoriken, Fotomaterial, Triathlon-Trikot und Berliner Kontext
+</footer>
+
+</body>
+</html>
