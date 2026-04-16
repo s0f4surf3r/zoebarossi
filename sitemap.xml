@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://zoebarossi.com/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zoebarossi.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zoebarossi.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://zoebarossi.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zoebarossi.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://zoebarossi.com/ueber.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zoebarossi.com/ueber.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zoebarossi.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://zoebarossi.com/pt/sobre.html"/>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://zoebarossi.com/partner.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zoebarossi.com/partner.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zoebarossi.com/en/partner.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://zoebarossi.com/pt/parceiros.html"/>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://zoebarossi.com/live.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zoebarossi.com/live.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zoebarossi.com/en/live.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://zoebarossi.com/pt/live.html"/>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://zoebarossi.com/impressum.html</loc>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://zoebarossi.com/datenschutz.html</loc>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
