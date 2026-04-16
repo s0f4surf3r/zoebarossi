@@ -16,7 +16,7 @@
   /* Kern-Palette */
   --color-bg:        #0d1b2a;
   --color-primary:   #15283d;
-  --color-secondary: #5a7a8c;
+  --color-secondary: #829cae;
   --color-accent:    #2b8a9a;
   --color-teal:      #4a9eb0;
   --color-warm:      #c4604e;
@@ -159,7 +159,10 @@ section { position: relative; z-index: 2; }
   color: var(--color-light);
   opacity: 0.75;
   transition: opacity .2s;
-  padding: .5rem .2rem;
+  padding: 0.75rem 0.4rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 .nav-links a:hover { opacity: 1; color: var(--color-light); }
 .nav-lang {
@@ -365,14 +368,14 @@ section { position: relative; z-index: 2; }
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  color: var(--color-accent);
+  color: var(--color-teal);
   font-weight: 600;
   font-size: 15px;
   padding: .5rem 0;
-  border-bottom: 1px solid rgba(43, 138, 154, 0.4);
+  border-bottom: 1px solid rgba(74, 158, 176, 0.4);
   transition: all .2s;
 }
-.story-more:hover { border-color: var(--color-accent); gap: .9rem; }
+.story-more:hover { color: var(--color-accent); border-color: var(--color-accent); gap: .9rem; }
 
 /* PARTNER TEASER ---------------------------------------------------------- */
 .partner-teaser {
@@ -458,8 +461,9 @@ section { position: relative; z-index: 2; }
   gap: .5rem;
   font-weight: 600;
   font-size: 14px;
-  color: var(--color-accent);
+  color: var(--color-teal);
 }
+.platform-link:hover { color: var(--color-accent); }
 @media (hover: hover) {
   .platform:hover { border-color: var(--color-accent); transform: translateY(-2px); }
 }
@@ -569,6 +573,17 @@ section { position: relative; z-index: 2; }
   .btn { width: 100%; }
   .footer-inner { grid-template-columns: 1fr; }
   .live-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* FOCUS ------------------------------------------------------------------- */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--color-spark);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.btn:focus-visible, .burger:focus-visible {
+  outline-offset: 4px;
 }
 
 /* MOTION ------------------------------------------------------------------ */
