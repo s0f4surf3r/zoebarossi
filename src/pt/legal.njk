@@ -1,0 +1,80 @@
+---
+layout: base.njk
+lang: "pt-BR"
+title: "Aviso Legal · Zoe Barossi"
+description: "Aviso legal conforme § 5 TMG."
+nav_active: ""
+nav_home: "/pt/"
+nav_about: "/pt/sobre/"
+nav_partner: "/pt/parceiros/"
+nav_live: "/pt/live/"
+nav_impressum: "/pt/legal/"
+nav_datenschutz: "/pt/privacidade/"
+lang_de: "/impressum/"
+lang_en: "/en/legal/"
+lang_pt: "#"
+t_about: "Sobre"
+t_partner: "Parceiros"
+t_live: "Live"
+t_footer_desc: "Triatleta. Berlim. A caminho de Nice, 12 de setembro de 2026."
+t_nav: "Navegação"
+t_follow: "Seguir"
+t_legal: "Legal"
+t_impressum: "Aviso Legal"
+t_datenschutz: "Privacidade"
+t_contact: "Contato"
+t_home: "Início"
+t_menu: "Menu"
+---
+
+{% block head %}
+<style>
+  .legal {
+    padding: 9rem 0 5rem;
+    max-width: 780px;
+    margin: 0 auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+  .legal .meta { display: block; margin-bottom: 1rem; }
+  .legal h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 3rem; }
+  .legal h2 { font-size: 1.3rem; margin: 2.5rem 0 .8rem; color: var(--color-teal); letter-spacing: 0; }
+  .legal p, .legal address { margin-bottom: 1rem; font-style: normal; max-width: 640px; color: var(--color-light); opacity: 0.88; }
+  .legal strong { color: var(--color-light); opacity: 1; font-weight: 600; }
+</style>
+{% endblock %}
+
+<section class="legal">
+  <span class="meta">Legal</span>
+  <h1>Informações legais</h1>
+
+  <p><em>Versão em português das informações legais exigidas pela legislação alemã (Impressum, § 5 TMG). Em caso de divergência, prevalece a versão em alemão.</em></p>
+
+  <h2>Dados conforme § 5 TMG</h2>
+  <address>
+    Zoe Barossi<br>
+    Lenaustraße 20<br>
+    12047 Berlim-Neukölln<br>
+    Alemanha
+  </address>
+
+  <h2>Contato</h2>
+  <p>
+    <strong>E-mail:</strong> <a href="mailto:hallo@zoebarossi.com">hallo@zoebarossi.com</a><br>
+    <strong>Patrocínio:</strong> <a href="mailto:sponsoring@zoebarossi.com">sponsoring@zoebarossi.com</a>
+  </p>
+
+  <h2>Responsável pelo conteúdo nos termos do § 55 Abs. 2 RStV</h2>
+  <p>Zoe Barossi, endereço conforme acima.</p>
+
+  <h2>Responsabilidade pelo conteúdo</h2>
+  <p>Como provedora de serviço, sou responsável pelos conteúdos próprios publicados neste site nos termos das leis gerais, conforme o § 7 Abs. 1 TMG. De acordo com os §§ 8 a 10 TMG, não sou obrigada a monitorar informações de terceiros transmitidas ou armazenadas, nem a investigar circunstâncias que indiquem atividade ilegal.</p>
+
+  <h2>Responsabilidade por links</h2>
+  <p>Este site contém links para sites externos de terceiros, sobre cujo conteúdo não tenho influência. Por isso, não posso garantir a corretude desses conteúdos. Pelos conteúdos dos sites linkados é sempre responsável o respectivo operador.</p>
+
+  <h2>Direitos autorais</h2>
+  <p>Os conteúdos e obras produzidos pela operadora neste site estão sujeitos ao direito autoral alemão. A reprodução, adaptação, distribuição e qualquer forma de uso fora dos limites do direito autoral exigem autorização escrita da respectiva autora.</p>
+
+  <p style="margin-top: 3rem; font-size: 12px; color: var(--color-secondary); letter-spacing: 1px; text-transform: uppercase;">Versão: abril de 2026</p>
+</section>

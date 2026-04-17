@@ -1,0 +1,343 @@
+---
+layout: base.njk
+lang: "pt-BR"
+title: "Sobre · Zoe Barossi"
+description: "A história dela. De São Paulo a Berlim, ao Campeonato Mundial em Nice."
+nav_active: "about"
+nav_home: "/pt/"
+nav_about: "/pt/sobre/"
+nav_partner: "/pt/parceiros/"
+nav_live: "/pt/live/"
+nav_impressum: "/pt/legal/"
+nav_datenschutz: "/pt/privacidade/"
+lang_de: "/ueber/"
+lang_en: "/en/about/"
+lang_pt: "#"
+t_about: "Sobre"
+t_partner: "Parceiros"
+t_live: "Live"
+t_footer_desc: "Triatleta. Berlim. A caminho de Nice, 12 de setembro de 2026."
+t_nav: "Navegação"
+t_follow: "Seguir"
+t_legal: "Legal"
+t_impressum: "Aviso Legal"
+t_datenschutz: "Privacidade"
+t_contact: "Contato"
+t_home: "Início"
+t_menu: "Menu"
+---
+
+{% block head %}
+<style>
+  .page-header {
+    padding: 9rem 0 5rem;
+    background: linear-gradient(180deg, rgba(13,27,42,0.4), rgba(13,27,42,0.85)),
+                linear-gradient(135deg, #0d1b2a, #15283d 50%, #c4604e 140%);
+  }
+  .page-header-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .page-header .meta { display: block; margin-bottom: 1rem; }
+  .page-header h1 { max-width: 16ch; margin-bottom: 1.5rem; }
+
+  /* TIMELINE */
+  .chronik {
+    padding: 5rem 0;
+    position: relative;
+  }
+  .chronik::before {
+    content: "";
+    position: absolute;
+    left: calc(50% - 0.5px);
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(90, 122, 140, 0.3) 10%,
+      rgba(90, 122, 140, 0.3) 90%,
+      transparent 100%);
+  }
+  .kapitel {
+    position: relative;
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 5rem var(--pad);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .kapitel-marker {
+    position: absolute;
+    left: calc(50% - 10px);
+    top: 6rem;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 6px var(--color-bg), 0 0 24px rgba(43, 138, 154, 0.5);
+    z-index: 3;
+  }
+  .kapitel.finale .kapitel-marker {
+    background: var(--color-spark);
+    box-shadow: 0 0 0 6px var(--color-bg), 0 0 40px rgba(232, 196, 104, 0.6);
+  }
+  .kapitel-text { }
+  .kapitel.right .kapitel-text { order: 2; }
+  .kapitel.right .kapitel-visual { order: 1; }
+
+  .kapitel-jahr {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    color: var(--color-spark);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    margin-bottom: .5rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .kapitel-ort {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-teal);
+    margin-bottom: 1.5rem;
+  }
+  .kapitel h2 { margin-bottom: 1.2rem; max-width: 14ch; }
+  .kapitel p {
+    color: var(--color-light);
+    opacity: 0.88;
+    max-width: 480px;
+    margin-bottom: 1rem;
+  }
+
+  .kapitel-visual {
+    aspect-ratio: 4/5;
+    background: var(--color-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+  .kapitel-visual img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .kapitel-visual .placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), rgba(43, 138, 154, 0.15));
+    color: var(--color-secondary);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* HEROS */
+  .heros {
+    padding: var(--section-pad);
+    background: var(--color-primary);
+    border-top: 1px solid rgba(90, 122, 140, 0.15);
+    border-bottom: 1px solid rgba(90, 122, 140, 0.15);
+  }
+  .heros-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .heros-header { margin-bottom: 3rem; max-width: 680px; }
+  .heros-header .meta { display: block; margin-bottom: 1rem; }
+  .heros-header h2 { margin-bottom: 1rem; }
+  .heros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.3rem;
+  }
+  .hero-card {
+    padding: 1.8rem 1.6rem;
+    border-radius: 6px;
+    background: rgba(13, 27, 42, 0.5);
+    border: 1px solid rgba(90, 122, 140, 0.18);
+  }
+  .hero-card-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--color-accent);
+    margin-bottom: .5rem;
+  }
+  .hero-card h3 { font-size: 1.1rem; margin-bottom: .5rem; color: var(--color-light); }
+  .hero-card p { font-size: 14px; color: var(--color-light); opacity: 0.78; line-height: 1.55; }
+
+  /* QUOTE */
+  .zitat {
+    padding: 8rem 0 5rem;
+    text-align: center;
+  }
+  .zitat-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .zitat blockquote {
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--color-light);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .zitat .meta { display: block; color: var(--color-secondary); }
+
+  @media (max-width: 900px) {
+    .chronik::before { left: 20px; }
+    .kapitel {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 3.5rem 1.5rem 3.5rem 3.5rem;
+    }
+    .kapitel-marker { left: 10px; top: 4rem; }
+    .kapitel.right .kapitel-text,
+    .kapitel.right .kapitel-visual { order: initial; }
+    .kapitel-visual { aspect-ratio: 3/2; }
+  }
+</style>
+{% endblock %}
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <span class="meta spark">A história</span>
+    <h1>Da primeira corrida ao palco mundial.</h1>
+    <p class="lead">Dois continentes, três idiomas, seis capítulos. Não é um caminho reto — mas é um caminho que leva até onde Zoe quer estar no dia 12 de setembro de 2026: dentro da água, em Nice.</p>
+  </div>
+</section>
+
+<section class="chronik">
+
+  <div class="kapitel">
+    <div class="kapitel-marker"></div>
+    <div class="kapitel-text">
+      <div class="kapitel-jahr">1991</div>
+      <div class="kapitel-ort">São Paulo, Brasil</div>
+      <h2>Chegou com orgulho e alegria.</h2>
+      <p>Uma infância entre cartas de Pokémon, Harry Potter e Tom Sawyer. Cinco fomes dentro dela: horizonte, aventura, justiça, inteligência, humor. Uma base que nunca foi colocada em dúvida — mesmo quando os pais não tinham tudo fácil.</p>
+    </div>
+    <div class="kapitel-visual">
+      <img src="/images/ch-saopaulo.webp" alt="Zoe criança em São Paulo, rindo, com vestido florido colorido" loading="lazy">
+    </div>
+  </div>
+
+  <div class="kapitel right">
+    <div class="kapitel-marker"></div>
+    <div class="kapitel-text">
+      <div class="kapitel-jahr">2023</div>
+      <div class="kapitel-ort">Berlim · Abril</div>
+      <h2>A primeira meia maratona.</h2>
+      <p>21,1 quilômetros atravessando Berlim. Largada no Portão de Brandemburgo, faixa do Brasil na cabeça, número 13033. Sem plano, sem coach, sem ideia de carreira. Só: eu consigo. A linha onde tudo começou. Depois da prova ela já sabia: tem mais.</p>
+    </div>
+    <div class="kapitel-visual">
+      <img src="/images/ch-halbmarathon.webp" alt="Zoe com dois amigos em frente ao Portão de Brandemburgo depois da meia maratona, faixa do Brasil" loading="lazy">
+    </div>
+  </div>
+
+  <div class="kapitel">
+    <div class="kapitel-marker"></div>
+    <div class="kapitel-text">
+      <div class="kapitel-jahr">2024</div>
+      <div class="kapitel-ort">Cervia, Itália</div>
+      <h2>O salto na água.</h2>
+      <p>Triatlo. Três modalidades em vez de uma. Aprender a nadar já adulta. Levar o ciclismo a sério. E o momento na praia de Cervia, saindo do mar rindo, com a medalha no horizonte — ali estava decidido: esse é o caminho.</p>
+    </div>
+    <div class="kapitel-visual">
+      <img src="/images/ch-sprung.webp" alt="Zoe saindo do mar de Cervia rindo, roupa de neoprene, saída de natação no triatlo" loading="lazy">
+    </div>
+  </div>
+
+  <div class="kapitel right">
+    <div class="kapitel-marker"></div>
+    <div class="kapitel-text">
+      <div class="kapitel-jahr">2025</div>
+      <div class="kapitel-ort">Berlim · Musculação &amp; Atletismo</div>
+      <h2>A transformação.</h2>
+      <p>Musculação, atletismo, repetição. O corpo aprende o que ainda não sabe. Músculo por músculo. A transformação não acontece num dia — ela acontece todos os dias.</p>
+    </div>
+    <div class="kapitel-visual">
+      <img src="/images/ch-verwandlung.webp" alt="Zoe fazendo supino na academia, concentrada, treino de força" loading="lazy">
+    </div>
+  </div>
+
+  <div class="kapitel">
+    <div class="kapitel-marker"></div>
+    <div class="kapitel-text">
+      <div class="kapitel-jahr">2025</div>
+      <div class="kapitel-ort">Tempelhofer Feld &amp; sala de casa</div>
+      <h2>Treinar como forma de viver.</h2>
+      <p>Cinco vezes por semana natação, cinco vezes bike, cinco vezes corrida. Ciência por trás: watts, limiar de lactato, plano nutricional. A sala de casa vira indoor-trainer, o Tempelhof vira segunda casa. Disciplina não como castigo — como linguagem.</p>
+    </div>
+    <div class="kapitel-visual">
+      <img src="/images/ch-training.webp" alt="Zoe na pista de tartan do estádio, jaqueta rosa de corrida, treino na luz de outono" loading="lazy">
+    </div>
+  </div>
+
+  <div class="kapitel right finale">
+    <div class="kapitel-marker"></div>
+    <div class="kapitel-text">
+      <div class="kapitel-jahr">2026</div>
+      <div class="kapitel-ort">Nice, França · 12 de setembro</div>
+      <h2>Campeonato Mundial Ironman 70.3.</h2>
+      <p>1,9 km de natação no Mediterrâneo. 90 km de bike pela Côte d'Azur. 21,1 km de corrida na Promenade des Anglais. Três anos depois da primeira meia maratona, ela está numa largada de Mundial. Esse não é o fim — é o ponto onde tudo se encontra.</p>
+    </div>
+    <div class="kapitel-visual">
+      <img src="/images/ch-nizza.webp" alt="Triatleta em posição aero na bike de time trial, clima de race-day" loading="lazy">
+    </div>
+  </div>
+
+</section>
+
+<section class="heros">
+  <div class="heros-inner">
+    <div class="heros-header">
+      <span class="meta teal">Hero Types</span>
+      <h2>Cinco arquétipos numa pessoa só.</h2>
+      <p class="lead">O que a move — e o que você vê quando a vê correr.</p>
+    </div>
+    <div class="heros-grid">
+      <div class="hero-card">
+        <div class="hero-card-num">01</div>
+        <h3>A buscadora de horizontes</h3>
+        <p>Você precisa de espaços maiores que o seu cotidiano. O infinito como lar — não como fuga.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">02</div>
+        <h3>A selvagem</h3>
+        <p>Você procura o arriscado, o não mapeado. Isso não é inquietação — é vitalidade pedindo saída.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">03</div>
+        <h3>A justa</h3>
+        <p>Você procura coisas que no fim dão certo. Inteligência moral acesa cedo.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">04</div>
+        <h3>A que enxerga através</h3>
+        <p>Você vê os sistemas antes dos outros perceberem. Reconhecimento de padrões como estratégia de sobrevivência.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">05</div>
+        <h3>A que ri</h3>
+        <p>Humor como espaço para respirar, leveza como resistência. Você sabe: o riso carrega o que as lágrimas não seguram.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zitat">
+  <div class="zitat-inner">
+    <blockquote>„You're alive when others have already given up."</blockquote>
+    <span class="meta">Do retrato de Zoe</span>
+  </div>
+</section>

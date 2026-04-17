@@ -1,0 +1,78 @@
+---
+layout: base.njk
+lang: "en"
+title: "Legal Notice · Zoe Barossi"
+description: "Legal notice per § 5 TMG."
+nav_active: ""
+nav_home: "/en/"
+nav_about: "/en/about/"
+nav_partner: "/en/partner/"
+nav_live: "/en/live/"
+nav_impressum: "/en/legal/"
+nav_datenschutz: "/en/privacy/"
+lang_de: "/impressum/"
+lang_en: "#"
+lang_pt: "/pt/legal/"
+t_about: "About"
+t_partner: "Partners"
+t_live: "Live"
+t_footer_desc: "Triathlete. Berlin. On the road to Nice, 12 September 2026."
+t_nav: "Navigation"
+t_follow: "Follow"
+t_legal: "Legal"
+t_impressum: "Legal Notice"
+t_datenschutz: "Privacy"
+t_contact: "Contact"
+t_home: "Home"
+t_menu: "Menu"
+---
+
+{% block head %}
+<style>
+  .legal {
+    padding: 9rem 0 5rem;
+    max-width: 780px;
+    margin: 0 auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+  .legal .meta { display: block; margin-bottom: 1rem; }
+  .legal h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 3rem; }
+  .legal h2 { font-size: 1.3rem; margin: 2.5rem 0 .8rem; color: var(--color-teal); letter-spacing: 0; }
+  .legal p, .legal address { margin-bottom: 1rem; font-style: normal; max-width: 640px; color: var(--color-light); opacity: 0.88; }
+  .legal strong { color: var(--color-light); opacity: 1; font-weight: 600; }
+</style>
+{% endblock %}
+
+<section class="legal">
+  <span class="meta">Legal</span>
+  <h1>Legal Notice</h1>
+
+  <h2>Information according to § 5 TMG (German Telemedia Act)</h2>
+  <address>
+    Zoe Barossi<br>
+    Lenaustraße 20<br>
+    12047 Berlin-Neukölln<br>
+    Germany
+  </address>
+
+  <h2>Contact</h2>
+  <p>
+    <strong>Email:</strong> <a href="mailto:hallo@zoebarossi.com">hallo@zoebarossi.com</a><br>
+    <strong>Sponsorship:</strong> <a href="mailto:sponsoring@zoebarossi.com">sponsoring@zoebarossi.com</a>
+  </p>
+
+  <h2>Responsible for content according to § 55 para. 2 RStV</h2>
+  <p>Zoe Barossi, address as above.</p>
+
+  <h2>Liability for content</h2>
+  <p>As a service provider, I am responsible for my own content on these pages under the general laws, in accordance with § 7 para. 1 TMG. Under §§ 8 to 10 TMG, however, I am not obliged as a service provider to monitor transmitted or stored third-party information or to investigate circumstances indicating unlawful activity.</p>
+
+  <h2>Liability for links</h2>
+  <p>This site contains links to external websites of third parties, over whose content I have no influence. I therefore cannot accept any liability for these external contents. The respective provider or operator of the linked pages is always responsible for their content.</p>
+
+  <h2>Copyright</h2>
+  <p>The content and works created by the site operator on these pages are subject to German copyright law. Reproduction, processing, distribution and any form of use beyond the limits of copyright law require the written consent of the respective author.</p>
+
+  <p style="margin-top: 3rem; font-size: 12px; color: var(--color-secondary); letter-spacing: 1px; text-transform: uppercase;">Last updated: April 2026</p>
+</section>

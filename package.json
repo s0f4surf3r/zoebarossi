@@ -1,0 +1,12 @@
+{
+  "name": "zoebarossi",
+  "version": "2.0.0",
+  "description": "Zoe Barossi — Triathletin. Nizza 2026.",
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve --port=9500",
+    "build": "npx @11ty/eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

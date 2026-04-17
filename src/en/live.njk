@@ -1,0 +1,198 @@
+---
+layout: base.njk
+lang: "en"
+title: "Live · Zoe Barossi"
+description: "Live on Twitch, YouTube and Instagram. Training, racing, community."
+nav_active: "live"
+nav_home: "/en/"
+nav_about: "/en/about/"
+nav_partner: "/en/partner/"
+nav_live: "/en/live/"
+nav_impressum: "/en/legal/"
+nav_datenschutz: "/en/privacy/"
+lang_de: "/live/"
+lang_en: "#"
+lang_pt: "/pt/live/"
+t_about: "About"
+t_partner: "Partners"
+t_live: "Live"
+t_footer_desc: "Triathlete. Berlin. On the road to Nice, 12 September 2026."
+t_nav: "Navigation"
+t_follow: "Follow"
+t_legal: "Legal"
+t_impressum: "Legal Notice"
+t_datenschutz: "Privacy"
+t_contact: "Contact"
+t_home: "Home"
+t_menu: "Menu"
+---
+
+{% block head %}
+<style>
+  .page-header {
+    padding: 9rem 0 5rem;
+    background: linear-gradient(180deg, rgba(13,27,42,0.4), rgba(13,27,42,0.85)),
+                linear-gradient(135deg, #0d1b2a, #15283d 50%, #4a9eb0 120%);
+  }
+  .page-header-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .page-header .meta { display: block; margin-bottom: 1rem; }
+  .page-header h1 { max-width: 16ch; margin-bottom: 1.5rem; }
+
+  .stream-box {
+    padding: var(--section-pad);
+  }
+  .stream-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .twitch-embed {
+    aspect-ratio: 16/9;
+    width: 100%;
+    background: var(--color-primary);
+    border: 1px solid rgba(90, 122, 140, 0.25);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .twitch-embed iframe { width: 100%; height: 100%; border: 0; }
+  .twitch-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background:
+      linear-gradient(135deg, rgba(13, 27, 42, 0.82), rgba(21, 40, 61, 0.92)),
+      url('../images/live-setup.webp') center/cover;
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-light);
+  }
+  .twitch-placeholder * { text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+  .twitch-placeholder .big-status {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--color-light);
+    letter-spacing: -0.02em;
+  }
+  .twitch-placeholder .meta { color: var(--color-secondary); }
+
+  .plan {
+    padding: var(--section-pad);
+    background: var(--color-primary);
+    border-top: 1px solid rgba(90, 122, 140, 0.15);
+  }
+  .plan-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .plan-header { margin-bottom: 3rem; }
+  .plan-header .meta { display: block; margin-bottom: 1rem; }
+  .schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .slot {
+    padding: 1.8rem 1.6rem;
+    background: rgba(13, 27, 42, 0.45);
+    border: 1px solid rgba(90, 122, 140, 0.18);
+    border-radius: 6px;
+  }
+  .slot-day {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-spark);
+    margin-bottom: .3rem;
+  }
+  .slot-time {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-light);
+    margin-bottom: .5rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .slot p { font-size: 14px; color: var(--color-light); opacity: 0.78; }
+
+  .race-day {
+    padding: var(--section-pad);
+    text-align: center;
+    background:
+      radial-gradient(circle at center, rgba(232, 196, 104, 0.1), transparent 60%);
+  }
+  .race-day-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .race-day .meta { display: block; margin-bottom: 1rem; }
+  .race-day h2 { margin-bottom: 1.5rem; }
+  .race-day p { font-size: 1.15rem; color: var(--color-light); opacity: 0.85; margin-bottom: 2rem; }
+</style>
+{% endblock %}
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <span class="meta spark">Live &amp; Stream</span>
+    <h1>Training. Conversations. Race day.</h1>
+    <p class="lead">Zoe streams regularly — from the living room, from Tempelhof Field, from the race. Join in.</p>
+  </div>
+</section>
+
+<section class="stream-box">
+  <div class="stream-inner">
+    <div class="twitch-embed">
+      <div class="twitch-placeholder">
+        <span class="live-status">Offline</span>
+        <div class="big-status">Next stream coming soon.</div>
+        <p class="meta">Follow on Twitch — you'll get notified.</p>
+        <a href="https://twitch.tv/zoebarossi" class="btn btn-filled" target="_blank" rel="noopener">Follow on Twitch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plan">
+  <div class="plan-inner">
+    <div class="plan-header">
+      <span class="meta teal">Stream Schedule</span>
+      <h2>A fixed rhythm. Live and honest.</h2>
+    </div>
+    <div class="schedule">
+      <div class="slot">
+        <div class="slot-day">Tuesday</div>
+        <div class="slot-time">19:00</div>
+        <p>Indoor training · 90 min on the smart trainer, with plan walk-through and Q&amp;A.</p>
+      </div>
+      <div class="slot">
+        <div class="slot-day">Thursday</div>
+        <div class="slot-time">20:00</div>
+        <p>Conversation · With coaches, athletes, people from the community.</p>
+      </div>
+      <div class="slot">
+        <div class="slot-day">Sunday</div>
+        <div class="slot-time">10:00</div>
+        <p>Long run or long bike · recorded, later on YouTube.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="race-day">
+  <div class="race-day-inner">
+    <span class="meta spark">12 September 2026</span>
+    <h2>Race Day Nice — Live with her.</h2>
+    <p>On the day of the World Championship, the Ironman stream will be broadcast officially. Crew and Alliance partners also get behind-the-scenes streams — before, during and after the race.</p>
+    <a href="partner.html" class="btn btn-outlined">Become a Partner</a>
+  </div>
+</section>

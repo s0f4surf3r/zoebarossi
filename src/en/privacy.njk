@@ -1,0 +1,81 @@
+---
+layout: base.njk
+lang: "en"
+title: "Privacy Policy · Zoe Barossi"
+description: "Privacy policy. No cookies, no trackers, EU hosting."
+nav_active: ""
+nav_home: "/en/"
+nav_about: "/en/about/"
+nav_partner: "/en/partner/"
+nav_live: "/en/live/"
+nav_impressum: "/en/legal/"
+nav_datenschutz: "/en/privacy/"
+lang_de: "/datenschutz/"
+lang_en: "#"
+lang_pt: "/pt/privacidade/"
+t_about: "About"
+t_partner: "Partners"
+t_live: "Live"
+t_footer_desc: "Triathlete. Berlin. On the road to Nice, 12 September 2026."
+t_nav: "Navigation"
+t_follow: "Follow"
+t_legal: "Legal"
+t_impressum: "Legal Notice"
+t_datenschutz: "Privacy"
+t_contact: "Contact"
+t_home: "Home"
+t_menu: "Menu"
+---
+
+{% block head %}
+<style>
+  .legal {
+    padding: 9rem 0 5rem;
+    max-width: 780px;
+    margin: 0 auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+  .legal .meta { display: block; margin-bottom: 1rem; }
+  .legal h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 3rem; }
+  .legal h2 { font-size: 1.3rem; margin: 2.5rem 0 .8rem; color: var(--color-teal); letter-spacing: 0; }
+  .legal p, .legal address, .legal li { margin-bottom: 1rem; font-style: normal; max-width: 640px; color: var(--color-light); opacity: 0.88; }
+  .legal ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .legal strong { color: var(--color-light); opacity: 1; font-weight: 600; }
+  .legal a { color: var(--color-teal); }
+</style>
+{% endblock %}
+
+<section class="legal">
+  <span class="meta">Legal</span>
+  <h1>Privacy Policy</h1>
+
+  <h2>Controller</h2>
+  <p>Zoe Barossi, address as listed in the <a href="legal.html">Legal Notice</a>.</p>
+
+  <h2>What we do NOT do</h2>
+  <ul>
+    <li>No cookies. No trackers. No analytics.</li>
+    <li>No advertising pixels, no retargeting.</li>
+    <li>No newsletter sign-up without your explicit consent.</li>
+  </ul>
+
+  <h2>Hosting</h2>
+  <p>This website is hosted by <strong>statichost.eu</strong> (Variable Object Assignment, Stockholm/Sweden; server location Helsinki/Finland). Statichost stores no personal data, no IP addresses, no access logs.</p>
+
+  <h2>Getting in touch</h2>
+  <p>If you send an email (<a href="mailto:hallo@zoebarossi.com">hallo@zoebarossi.com</a> or <a href="mailto:sponsoring@zoebarossi.com">sponsoring@zoebarossi.com</a>), your details will be stored to process your request. Legal basis: Art. 6 para. 1 lit. b GDPR. The data will be deleted once the request has been handled, unless legal retention obligations require otherwise.</p>
+
+  <h2>Social media links</h2>
+  <p>This site contains links to Instagram, Twitch, YouTube and possibly other services. Data is transmitted to the respective provider only when you click on a link. The privacy policies of the respective provider then apply.</p>
+
+  <h2>Your rights</h2>
+  <p>You have the right to access, rectification, deletion, restriction of processing, data portability and objection. To exercise these rights, please contact the email address above.</p>
+
+  <p>You also have the right to lodge a complaint with a supervisory authority. The competent authority is the state data protection commissioner of your federal state.</p>
+
+  <h2>SSL encryption</h2>
+  <p>For security reasons, this website uses SSL encryption. You can recognise it by the lock icon in your browser's address bar.</p>
+
+  <p style="margin-top: 3rem; font-size: 12px; color: var(--color-secondary); letter-spacing: 1px; text-transform: uppercase;">Last updated: April 2026</p>
+</section>

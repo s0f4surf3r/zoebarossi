@@ -1,0 +1,316 @@
+---
+layout: base.njk
+lang: "en"
+title: "Partners · Zoe Barossi"
+description: "Three ways to be part of the journey to Nice."
+nav_active: "partner"
+nav_home: "/en/"
+nav_about: "/en/about/"
+nav_partner: "/en/partner/"
+nav_live: "/en/live/"
+nav_impressum: "/en/legal/"
+nav_datenschutz: "/en/privacy/"
+lang_de: "/partner/"
+lang_en: "#"
+lang_pt: "/pt/parceiros/"
+t_about: "About"
+t_partner: "Partners"
+t_live: "Live"
+t_footer_desc: "Triathlete. Berlin. On the road to Nice, 12 September 2026."
+t_nav: "Navigation"
+t_follow: "Follow"
+t_legal: "Legal"
+t_impressum: "Legal Notice"
+t_datenschutz: "Privacy"
+t_contact: "Contact"
+t_home: "Home"
+t_menu: "Menu"
+---
+
+{% block head %}
+<style>
+  .page-header {
+    padding: 9rem 0 5rem;
+    background:
+      linear-gradient(180deg, rgba(13,27,42,0.4), rgba(13,27,42,0.85)),
+      linear-gradient(135deg, #0d1b2a, #15283d 50%, #2b8a9a 120%);
+  }
+  .page-header-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .page-header .meta { display: block; margin-bottom: 1rem; }
+  .page-header h1 { max-width: 14ch; margin-bottom: 1.5rem; }
+  .page-header .lead { max-width: 620px; }
+
+  .pakete {
+    padding: var(--section-pad);
+  }
+  .pakete-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .paket-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .paket {
+    background: var(--color-primary);
+    border: 1px solid rgba(90, 122, 140, 0.25);
+    border-radius: 6px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all .3s;
+  }
+  .paket.gold {
+    border-color: var(--color-accent);
+    background: linear-gradient(180deg, var(--color-primary), rgba(43, 138, 154, 0.12));
+    position: relative;
+  }
+  .paket.gold::before {
+    content: "Main Sponsor";
+    position: absolute;
+    top: -10px;
+    left: 2rem;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: .4rem 1rem;
+    background: var(--color-spark);
+    color: var(--color-bg);
+    border-radius: 2px;
+  }
+  @media (hover: hover) {
+    .paket:hover { transform: translateY(-4px); border-color: var(--color-teal); }
+    .paket.gold:hover { border-color: var(--color-spark); }
+  }
+  .paket-tier {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-teal);
+    margin-bottom: 1rem;
+  }
+  .paket.gold .paket-tier { color: var(--color-spark); }
+  .paket h3 {
+    font-size: 2rem;
+    margin-bottom: .3rem;
+  }
+  .paket-price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-spark);
+    margin-bottom: .3rem;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .paket-price small {
+    font-size: 0.4em;
+    font-weight: 500;
+    color: var(--color-secondary);
+    letter-spacing: 0;
+    display: block;
+    margin-top: .3rem;
+  }
+  .paket-tag {
+    color: var(--color-light);
+    opacity: 0.8;
+    font-size: 15px;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid rgba(90, 122, 140, 0.2);
+  }
+  .paket ul {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+  .paket li {
+    padding: .6rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+    font-size: 15px;
+    color: var(--color-light);
+    opacity: 0.88;
+    line-height: 1.5;
+  }
+  .paket li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+  .paket .btn { width: 100%; }
+
+  /* WARUM SIE SEKTION */
+  .warum {
+    padding: var(--section-pad);
+    background: var(--color-primary);
+    border-top: 1px solid rgba(90, 122, 140, 0.15);
+    border-bottom: 1px solid rgba(90, 122, 140, 0.15);
+  }
+  .warum-inner {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .warum h2 { margin-bottom: 1.5rem; max-width: 14ch; }
+  .warum-points { display: flex; flex-direction: column; gap: 2rem; }
+  .warum-point { padding-left: 3rem; position: relative; }
+  .warum-point-num {
+    position: absolute;
+    left: 0;
+    top: -.3rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-spark);
+    font-variant-numeric: tabular-nums;
+  }
+  .warum-point h3 { font-size: 1.2rem; margin-bottom: .5rem; color: var(--color-light); }
+  .warum-point p { color: var(--color-light); opacity: 0.75; font-size: 15px; }
+
+  /* NACH DEM RACE */
+  .kontakt {
+    padding: var(--section-pad);
+    text-align: center;
+  }
+  .kontakt-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+  .kontakt .meta { display: block; margin-bottom: 1rem; }
+  .kontakt h2 { margin-bottom: 1.5rem; }
+  .kontakt p { margin-bottom: 2.5rem; font-size: 1.15rem; color: var(--color-light); opacity: 0.85; }
+  .kontakt-mail {
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-teal);
+    padding: .5rem 0;
+    border-bottom: 2px solid rgba(74, 158, 176, 0.4);
+  }
+  .kontakt-mail:hover { color: var(--color-accent); border-color: var(--color-accent); }
+
+  @media (max-width: 900px) {
+    .page-header { padding: 7rem 0 4rem; }
+    .paket-grid { grid-template-columns: 1fr; }
+    .warum-inner { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+{% endblock %}
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <span class="meta spark">Partners &amp; Sponsorship</span>
+    <h1>Three ways to become part of the journey.</h1>
+    <p class="lead">Nice isn't a solo project. Behind every athlete who stands on a World Championship start line are people and brands who believed in her — before she had proved it.</p>
+  </div>
+</section>
+
+<section class="pakete">
+  <div class="pakete-inner">
+    <h2 class="meta teal" style="font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin: 0;">Sponsorship Packages</h2>
+    <div class="paket-grid">
+
+      <article class="paket">
+        <span class="paket-tier">Bronze</span>
+        <h3>Crew</h3>
+        <div class="paket-price">€500<small>one-off</small></div>
+        <p class="paket-tag">For friends, family and fans who want to come along for the ride.</p>
+        <ul>
+          <li>Your name on the thank-you page of this website</li>
+          <li>Insider newsletter once a month</li>
+          <li>Exclusive race previews &amp; training updates</li>
+          <li>Signed finisher postcard from Nice</li>
+        </ul>
+        <a href="mailto:sponsoring@zoebarossi.com?subject=Sponsorship%20Bronze%20%E2%80%93%20Crew" class="btn btn-outlined">Enquire</a>
+      </article>
+
+      <article class="paket">
+        <span class="paket-tier">Silver</span>
+        <h3>Partner</h3>
+        <div class="paket-price">€2,500<small>or 5 × €500</small></div>
+        <p class="paket-tag">For brands looking for a real face — not a billboard, a person.</p>
+        <ul>
+          <li>Logo placement on the tri-suit (side)</li>
+          <li>Four social media features (Instagram + Twitch)</li>
+          <li>Logo &amp; link on the website and newsletter</li>
+          <li>Race-day mention on stream &amp; post</li>
+          <li>Exclusive insider newsletter for your team</li>
+        </ul>
+        <a href="mailto:sponsoring@zoebarossi.com?subject=Sponsorship%20Silver%20%E2%80%93%20Partner" class="btn btn-filled">Enquire</a>
+      </article>
+
+      <article class="paket gold">
+        <span class="paket-tier">Gold</span>
+        <h3>Alliance</h3>
+        <div class="paket-price">€10,000+<small>Negotiable</small></div>
+        <p class="paket-tag">The face of the Nice campaign. One brand, full presence.</p>
+        <ul>
+          <li>Premium placement on the tri-suit (chest)</li>
+          <li>Twelve social features + two reels + one video</li>
+          <li>Joint content campaign up to race day</li>
+          <li>Naming rights: "presented by …"</li>
+          <li>Personal appearances: meetings, events, interviews</li>
+          <li>Custom reporting &amp; reach analysis</li>
+        </ul>
+        <a href="mailto:sponsoring@zoebarossi.com?subject=Sponsorship%20Gold%20%E2%80%93%20Alliance" class="btn btn-filled" style="background: var(--color-spark); color: var(--color-bg)">Request a Call</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="warum">
+  <div class="warum-inner">
+    <div>
+      <span class="meta teal">Why Zoe?</span>
+      <h2>Because a real story moves something a billboard can't.</h2>
+      <p class="lead" style="margin-top: 1.5rem">Zoe doesn't bring a million followers, but a journey you can follow. People follow people.</p>
+    </div>
+    <div class="warum-points">
+      <div class="warum-point">
+        <div class="warum-point-num">01</div>
+        <h3>Real transformation</h3>
+        <p>From her first half marathon in 2023 to the Ironman World Championship in 2026. Not a born athlete — an observable path that people can identify with.</p>
+      </div>
+      <div class="warum-point">
+        <div class="warum-point-num">02</div>
+        <h3>Three languages, two worlds</h3>
+        <p>Brazilian in Berlin. German, English, Portuguese. Reach across three language markets with no extra effort.</p>
+      </div>
+      <div class="warum-point">
+        <div class="warum-point-num">03</div>
+        <h3>Her own content ecosystem</h3>
+        <p>Twitch streams from everyday training. YouTube for highlights. Instagram for moments. Substack for depth. No renting reach — a real community.</p>
+      </div>
+      <div class="warum-point">
+        <div class="warum-point-num">04</div>
+        <h3>The finish line is on TV</h3>
+        <p>The Ironman 70.3 World Championship in Nice is streamed worldwide. Logo on the tri-suit = visible on an international stage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kontakt">
+  <div class="kontakt-inner">
+    <span class="meta spark">Something different in mind?</span>
+    <h2>No package fits?</h2>
+    <p>Talk to Zoe directly. Custom packages, product sponsorship (equipment, travel, training), club or association partnerships — all possible.</p>
+    <a href="mailto:sponsoring@zoebarossi.com" class="kontakt-mail">sponsoring@zoebarossi.com</a>
+  </div>
+</section>

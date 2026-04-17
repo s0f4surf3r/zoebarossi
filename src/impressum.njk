@@ -1,0 +1,66 @@
+---
+layout: base.njk
+lang: "de"
+title: "Impressum · Zoe Barossi"
+description: "Impressum nach § 5 TMG."
+nav_active: ""
+nav_home: "/"
+nav_about: "/ueber/"
+nav_partner: "/partner/"
+nav_live: "/live/"
+nav_impressum: "/impressum/"
+nav_datenschutz: "/datenschutz/"
+lang_de: "#"
+lang_en: "/en/legal/"
+lang_pt: "/pt/legal/"
+---
+
+{% block head %}
+<style>
+  .legal {
+    padding: 9rem 0 5rem;
+    max-width: 780px;
+    margin: 0 auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+  .legal .meta { display: block; margin-bottom: 1rem; }
+  .legal h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 3rem; }
+  .legal h2 { font-size: 1.3rem; margin: 2.5rem 0 .8rem; color: var(--color-teal); letter-spacing: 0; }
+  .legal p, .legal address { margin-bottom: 1rem; font-style: normal; max-width: 640px; color: var(--color-light); opacity: 0.88; }
+  .legal strong { color: var(--color-light); opacity: 1; font-weight: 600; }
+</style>
+{% endblock %}
+
+<section class="legal">
+  <span class="meta">Rechtliches</span>
+  <h1>Impressum</h1>
+
+  <h2>Angaben gemäß § 5 TMG</h2>
+  <address>
+    Zoe Barossi<br>
+    Lenaustraße 20<br>
+    12047 Berlin-Neukölln<br>
+    Deutschland
+  </address>
+
+  <h2>Kontakt</h2>
+  <p>
+    <strong>E-Mail:</strong> <a href="mailto:hallo@zoebarossi.com">hallo@zoebarossi.com</a><br>
+    <strong>Sponsoring:</strong> <a href="mailto:sponsoring@zoebarossi.com">sponsoring@zoebarossi.com</a>
+  </p>
+
+  <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+  <p>Zoe Barossi, Anschrift wie oben.</p>
+
+  <h2>Haftung für Inhalte</h2>
+  <p>Als Diensteanbieterin bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieterin jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+  <h2>Haftung für Links</h2>
+  <p>Diese Seite enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+  <h2>Urheberrecht</h2>
+  <p>Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung der jeweiligen Autorin.</p>
+
+  <p style="margin-top: 3rem; font-size: 12px; color: var(--color-secondary); letter-spacing: 1px; text-transform: uppercase;">Stand: April 2026</p>
+</section>
